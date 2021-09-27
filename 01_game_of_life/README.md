@@ -1,15 +1,24 @@
 # Lab Submission Checklist
 
 [ ] Lab log/design notebook. You can put your notes in this README, but any sketches/etc. should be included, preferably in PDF form, inside the `docs` directory.
+
 [ ] Verilog files, FPGA configuration, etc.
+
 [ ] Demo Check Ins - Get instructor sign offs on:
+
   [ ] Working 3_to_8 decoder simulation.
+
   [ ] Working game of life (test_main) simulation
+
   [ ] FPGA flashing - change the button gates
+
   [ ] FPGA flashing - working led array driver
 
+
 Bonus:
+
 [ ] Expand the grid from 5x5 to 8x8 using hand written logic.
+
 [ ] Learn how to use generate statements to automate led_array logic for any size grid (see main.sv for example).
 
 # Reference Materials
