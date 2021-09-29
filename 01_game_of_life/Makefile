@@ -8,9 +8,13 @@ VIVADO=vivado -mode batch -source
 .PHONY: clean submission remove_solutions
 
 DECODERS=decoder_1_to_2.sv decoder_2_to_4.sv decoder_3_to_8.sv
+ADDERS=half_adder.sv full_adder.sv
 
 test_decoders: test_decoders.sv $(DECODERS)
 	${IVERILOG} $^ -o test_decoders.bin && ${VVP} test_decoders.bin
+
+test_adders: test_adders.sv $(ADDERS)
+	${IVERILOG} $^ -o test_adders.bin && ${VVP} test_adders.bin
 
 test_led_array_driver: test_led_array_driver.sv led_array_driver.sv led_array_model.sv $(DECODERS)
 	${IVERILOG} $^ -o test_led_array_driver.bin && ${VVP} test_led_array_driver.bin
