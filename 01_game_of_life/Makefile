@@ -8,7 +8,7 @@ VIVADO=vivado -mode batch -source
 .PHONY: clean submission remove_solutions
 
 DECODERS=decoder_1_to_2.sv decoder_2_to_4.sv decoder_3_to_8.sv
-ADDERS=half_adder.sv full_adder.sv
+ADDERS=half_adder.sv full_adder.sv two_bit_adder.sv
 
 test_decoders: test_decoders.sv $(DECODERS)
 	${IVERILOG} $^ -o test_decoders.bin && ${VVP} test_decoders.bin

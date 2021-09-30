@@ -8,7 +8,7 @@ output logic c;
 
 always_comb begin
   y = a ^ b ^ c_in;
-  c = a & b;
+  c = (a & b) | (c_in & a) | (c_in & b);
 end
 
 endmodule
