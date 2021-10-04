@@ -11,6 +11,7 @@ module test_adders;
   wire [1:0] c_full;
   logic [2:0] c_two;
   logic [3:0] c_three;
+  logic [3:0] sum;
   
 
   half_adder UUT(a[0], b[0], c_half[0], c_half[1]);
@@ -51,6 +52,18 @@ module test_adders;
       b = i[1:0];
       a = i[3:2];
       #1 $display(" %2b %2b | %1b %2b", a[1:0], b[1:0], c_two[2], c_two[1:0]);
+    end
+
+    $display("\n3bit adder tested");
+    for (int i = 0; i < 128; i = i + 1) begin
+      b = i[2:0];
+      a = i[6:3];
+      sum = a + b;
+      #1
+      if (c_three !== sum) begin
+        $error("%3b + %3b = %4b (expected %4b)", a, b, c_three, sum);
+      end
+
     end
         
     $finish;      

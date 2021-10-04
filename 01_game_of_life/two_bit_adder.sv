@@ -1,5 +1,5 @@
 // Use a half-adder and full-adder to create a 2-bit adder
-module two_bit_adder(a,b,y,c);
+module two_bit_adder(a,b,c,y);
 
 input wire [1:0] a,b;
 output logic [1:0] y;
