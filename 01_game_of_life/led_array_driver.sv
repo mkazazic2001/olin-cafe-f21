@@ -26,8 +26,7 @@ module led_array_driver(ena, x, cells, rows, cols);
     end
   end
 
-  wire [N-1:0] x_decoded;
-  decoder_3_to_8 COL_DECODER(ena, x, x_decoded);
+  decoder_3_to_8 COL_DECODER(ena, x, cols);
   
 endmodule
 
