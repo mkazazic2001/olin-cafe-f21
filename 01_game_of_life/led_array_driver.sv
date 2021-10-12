@@ -27,6 +27,21 @@ module led_array_driver(ena, x, cells, rows, cols);
   end
 
   decoder_3_to_8 COL_DECODER(ena, x, cols);
+
+  wire [N*N-1:0] leds;
+
+  always_comb begin: rowDriver
+    generate
+      genvar a, b;
+      for(a = 0; a < N; a++) begin : rows
+        for(b = 0; b < N; b++) begin : columns
+          cells[b*N+a] * cols[b]
+          
+        end
+      end
+    endgenerate
+  end
+
   
 endmodule
 
