@@ -1,3 +1,11 @@
 decoders.vcd
 test_decoders.bin
 ../class-0920/
+*.bin
+*.vcd
+*.str
+*.jou
+*.log
+*.cache
+*.hw
+*.runs

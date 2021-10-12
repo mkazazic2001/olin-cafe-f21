@@ -2,7 +2,7 @@
 
 module led_array_driver(ena, x, cells, rows, cols);
   // Module I/O and parameters
-  parameter N=5; // Size of Conway Cell Grid.
+  parameter N=8; // Size of Conway Cell Grid.
   parameter ROWS=N;
   parameter COLS=N;
 
@@ -30,18 +30,19 @@ module led_array_driver(ena, x, cells, rows, cols);
 
   wire [N*N-1:0] leds;
 
-  always_comb begin: rowDriver
-    generate
-      genvar a, b;
-      for(a = 0; a < N; a++) begin : rows
-        for(b = 0; b < N; b++) begin : columns
-          cells[b*N+a] * cols[b]
-          
-        end
+  generate
+    genvar row;
+    for(row = 0; row < N; row++) begin
+      always_comb begin : rowDriver
+        // bitmask and OR together
+        rows[row] = ena & ~|(cells[(row*N)+N-1:row*N] & cols);
       end
-    endgenerate
-  end
+    end
+  endgenerate
 
+
+
+  
   
 endmodule
 

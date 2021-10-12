@@ -22,10 +22,10 @@ test_led_array_driver: test_led_array_driver.sv led_array_driver.sv led_array_mo
 test_conway_cell: test_conway_cell.sv conway_cell.sv ${ADDERS}
 	${IVERILOG} $^ -o test_conway_cell.bin &&	${VVP} test_conway_cell.bin
 
-test_main: test_main.sv main.sv conway_cell.sv initial_conditions.sv led_array_driver.sv led_array_model.sv $(DECODERS)
+test_main: test_main.sv main.sv conway_cell.sv initial_conditions.sv led_array_driver.sv led_array_model.sv $(DECODERS) $(ADDERS)
 	${IVERILOG} $^ -o test_main.bin && ${VVP} test_main.bin
 
-main.bit: main.sv conway_cell.sv led_array_driver.sv $(DECODERS)
+main.bit: main.sv conway_cell.sv led_array_driver.sv $(DECODERS) $(ADDERS)
 	@echo "########################################"
 	@echo "#### Building FPGA bitstream        ####"
 	@echo "########################################"
