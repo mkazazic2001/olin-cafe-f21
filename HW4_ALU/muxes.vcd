@@ -1,0 +1,571 @@
+$date
+	Mon Oct 18 19:54:50 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_adders $end
+$scope module UUT2_1_MUX $end
+$var wire 64 ! D [63:0] $end
+$var wire 1 " S $end
+$var wire 32 # Y [31:0] $end
+$upscope $end
+$upscope $end
+$scope module test_adders $end
+$scope module UUT32_1_MUX $end
+$var wire 1024 $ D [1023:0] $end
+$var wire 5 % S [4:0] $end
+$var wire 32 & Y_2 [31:0] $end
+$var wire 32 ' Y_1 [31:0] $end
+$var wire 32 ( Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 ) D [63:0] $end
+$var wire 1 * S $end
+$var wire 32 + Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 512 , D [511:0] $end
+$var wire 4 - S [3:0] $end
+$var wire 32 . Y_2 [31:0] $end
+$var wire 32 / Y_1 [31:0] $end
+$var wire 32 0 Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 1 D [63:0] $end
+$var wire 1 2 S $end
+$var wire 32 3 Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 256 4 D [255:0] $end
+$var wire 3 5 S [2:0] $end
+$var wire 32 6 Y_2 [31:0] $end
+$var wire 32 7 Y_1 [31:0] $end
+$var wire 32 8 Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 9 D [63:0] $end
+$var wire 1 : S $end
+$var wire 32 ; Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 128 < D [127:0] $end
+$var wire 2 = S [1:0] $end
+$var wire 32 > Y_2 [31:0] $end
+$var wire 32 ? Y_1 [31:0] $end
+$var wire 32 @ Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 A D [63:0] $end
+$var wire 1 B S $end
+$var wire 32 C Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 D D [63:0] $end
+$var wire 1 E S $end
+$var wire 32 F Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 G D [63:0] $end
+$var wire 1 H S $end
+$var wire 32 I Y [31:0] $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 128 J D [127:0] $end
+$var wire 2 K S [1:0] $end
+$var wire 32 L Y_2 [31:0] $end
+$var wire 32 M Y_1 [31:0] $end
+$var wire 32 N Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 O D [63:0] $end
+$var wire 1 P S $end
+$var wire 32 Q Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 R D [63:0] $end
+$var wire 1 S S $end
+$var wire 32 T Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 U D [63:0] $end
+$var wire 1 V S $end
+$var wire 32 W Y [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 256 X D [255:0] $end
+$var wire 3 Y S [2:0] $end
+$var wire 32 Z Y_2 [31:0] $end
+$var wire 32 [ Y_1 [31:0] $end
+$var wire 32 \ Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 ] D [63:0] $end
+$var wire 1 ^ S $end
+$var wire 32 _ Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 128 ` D [127:0] $end
+$var wire 2 a S [1:0] $end
+$var wire 32 b Y_2 [31:0] $end
+$var wire 32 c Y_1 [31:0] $end
+$var wire 32 d Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 e D [63:0] $end
+$var wire 1 f S $end
+$var wire 32 g Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 h D [63:0] $end
+$var wire 1 i S $end
+$var wire 32 j Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 k D [63:0] $end
+$var wire 1 l S $end
+$var wire 32 m Y [31:0] $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 128 n D [127:0] $end
+$var wire 2 o S [1:0] $end
+$var wire 32 p Y_2 [31:0] $end
+$var wire 32 q Y_1 [31:0] $end
+$var wire 32 r Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 s D [63:0] $end
+$var wire 1 t S $end
+$var wire 32 u Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 v D [63:0] $end
+$var wire 1 w S $end
+$var wire 32 x Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 y D [63:0] $end
+$var wire 1 z S $end
+$var wire 32 { Y [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 512 | D [511:0] $end
+$var wire 4 } S [3:0] $end
+$var wire 32 ~ Y_2 [31:0] $end
+$var wire 32 !" Y_1 [31:0] $end
+$var wire 32 "" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 #" D [63:0] $end
+$var wire 1 $" S $end
+$var wire 32 %" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 256 &" D [255:0] $end
+$var wire 3 '" S [2:0] $end
+$var wire 32 (" Y_2 [31:0] $end
+$var wire 32 )" Y_1 [31:0] $end
+$var wire 32 *" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 +" D [63:0] $end
+$var wire 1 ," S $end
+$var wire 32 -" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 128 ." D [127:0] $end
+$var wire 2 /" S [1:0] $end
+$var wire 32 0" Y_2 [31:0] $end
+$var wire 32 1" Y_1 [31:0] $end
+$var wire 32 2" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 3" D [63:0] $end
+$var wire 1 4" S $end
+$var wire 32 5" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 6" D [63:0] $end
+$var wire 1 7" S $end
+$var wire 32 8" Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 9" D [63:0] $end
+$var wire 1 :" S $end
+$var wire 32 ;" Y [31:0] $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 128 <" D [127:0] $end
+$var wire 2 =" S [1:0] $end
+$var wire 32 >" Y_2 [31:0] $end
+$var wire 32 ?" Y_1 [31:0] $end
+$var wire 32 @" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 A" D [63:0] $end
+$var wire 1 B" S $end
+$var wire 32 C" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 D" D [63:0] $end
+$var wire 1 E" S $end
+$var wire 32 F" Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 G" D [63:0] $end
+$var wire 1 H" S $end
+$var wire 32 I" Y [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 256 J" D [255:0] $end
+$var wire 3 K" S [2:0] $end
+$var wire 32 L" Y_2 [31:0] $end
+$var wire 32 M" Y_1 [31:0] $end
+$var wire 32 N" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 O" D [63:0] $end
+$var wire 1 P" S $end
+$var wire 32 Q" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 128 R" D [127:0] $end
+$var wire 2 S" S [1:0] $end
+$var wire 32 T" Y_2 [31:0] $end
+$var wire 32 U" Y_1 [31:0] $end
+$var wire 32 V" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 W" D [63:0] $end
+$var wire 1 X" S $end
+$var wire 32 Y" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 Z" D [63:0] $end
+$var wire 1 [" S $end
+$var wire 32 \" Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 ]" D [63:0] $end
+$var wire 1 ^" S $end
+$var wire 32 _" Y [31:0] $end
+$upscope $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 128 `" D [127:0] $end
+$var wire 2 a" S [1:0] $end
+$var wire 32 b" Y_2 [31:0] $end
+$var wire 32 c" Y_1 [31:0] $end
+$var wire 32 d" Y [31:0] $end
+$scope module final_mux $end
+$var wire 64 e" D [63:0] $end
+$var wire 1 f" S $end
+$var wire 32 g" Y [31:0] $end
+$upscope $end
+$scope module pair_1_mux $end
+$var wire 64 h" D [63:0] $end
+$var wire 1 i" S $end
+$var wire 32 j" Y [31:0] $end
+$upscope $end
+$scope module pair_2_mux $end
+$var wire 64 k" D [63:0] $end
+$var wire 1 l" S $end
+$var wire 32 m" Y [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx m"
+xl"
+b1111111111111111111111111111111100000000000000000000000000000000 k"
+b0 j"
+xi"
+b0 h"
+bx g"
+xf"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx e"
+bx d"
+b0 c"
+bx b"
+bx a"
+b1111111111111111111111111111111100000000000000000000000000000000 `"
+b0 _"
+x^"
+b0 ]"
+b0 \"
+x["
+b0 Z"
+b0 Y"
+xX"
+b0 W"
+b0 V"
+b0 U"
+b0 T"
+bx S"
+b0 R"
+bx Q"
+xP"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx O"
+bx N"
+b0 M"
+bx L"
+bx K"
+b1111111111111111111111111111111100000000000000000000000000000000 J"
+b0 I"
+xH"
+b0 G"
+b0 F"
+xE"
+b0 D"
+b0 C"
+xB"
+b0 A"
+b0 @"
+b0 ?"
+b0 >"
+bx ="
+b0 <"
+b0 ;"
+x:"
+b0 9"
+b0 8"
+x7"
+b0 6"
+b0 5"
+x4"
+b0 3"
+b0 2"
+b0 1"
+b0 0"
+bx /"
+b0 ."
+b0 -"
+x,"
+b0 +"
+b0 *"
+b0 )"
+b0 ("
+bx '"
+b0 &"
+bx %"
+x$"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #"
+bx ""
+b0 !"
+bx ~
+bx }
+b1111111111111111111111111111111100000000000000000000000000000000 |
+b0 {
+xz
+b0 y
+b0 x
+xw
+b0 v
+b0 u
+xt
+b0 s
+b0 r
+b0 q
+b0 p
+bx o
+b0 n
+b0 m
+xl
+b0 k
+b0 j
+xi
+b0 h
+b0 g
+xf
+b0 e
+b0 d
+b0 c
+b0 b
+bx a
+b0 `
+b0 _
+x^
+b0 ]
+b0 \
+b0 [
+b0 Z
+bx Y
+b0 X
+b0 W
+xV
+b0 U
+b0 T
+xS
+b0 R
+b0 Q
+xP
+b0 O
+b0 N
+b0 M
+b0 L
+bx K
+b0 J
+b0 I
+xH
+b0 G
+b0 F
+xE
+b0 D
+b0 C
+xB
+b0 A
+b0 @
+b0 ?
+b0 >
+bx =
+b0 <
+b0 ;
+x:
+b0 9
+b0 8
+b0 7
+b0 6
+bx 5
+b0 4
+b0 3
+x2
+b0 1
+b0 0
+b0 /
+b0 .
+bx -
+b0 ,
+bx +
+x*
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx )
+bx (
+b0 '
+bx &
+bx %
+b1111111111111111111111111111111100000000000000000000000000000000 $
+bx #
+x"
+b1111111111111111111111111111111100000000000000000000000000000000 !
+$end
+#3000
+bx )
+bx '
+bx 0
+bx 3
+bx /
+bx 8
+bx ;
+bx 1
+bx .
+bx \
+bx _
+bx #"
+bx !"
+bx *"
+bx -"
+bx0xx0xxxxx1xxx11xxxxxxxx0xx0xxxx 7
+bx0xx0xxxxx1xxx11xxxxxxxx0xx0xxxx @
+bx0xx0xxxxx1xxx11xxxxxxxx0xx0xxxx C
+bx0xx0xxxxx1xxx11xxxxxxxx0xx0xxxxxxxxxxx0xx0xxxx00xxx1xxxxxxxxx0x 9
+bx0xx0xxxx00xxx1xxxxxxxxx0x 6
+bx0xx0xxxx00xxx1xxxxxxxxx0x N
+bx0xx0xxxx00xxx1xxxxxxxxx0x Q
+bx1xx1xxxx0xxxxxxxxxxxxxx1x [
+bx1xx1xxxx0xxxxxxxxxxxxxx1x d
+bx1xx1xxxx0xxxxxxxxxxxxxx1x g
+bx1xx1xxxx0xxxxxxxxxxxxxx1xxxxxxxxxxxxxxx1xxxxx0xxxxxxxxxxx ]
+bx1xxxxx0xxxxxxxxxxx Z
+bx1xxxxx0xxxxxxxxxxx r
+bx1xxxxx0xxxxxxxxxxx u
+bx1xxxxxxxxxxx1xxxxxxxxxx1xxxxxxx )"
+bx1xxxxxxxxxxx1xxxxxxxxxx1xxxxxxx 2"
+bx1xxxxxxxxxxx1xxxxxxxxxx1xxxxxxx 5"
+bx1xxxxxxxxxxx1xxxxxxxxxx1xxxxxxx00xxxxxxxxxxxxx111xxxxx10xxxxxxx +"
+b0xxxxxxxxxxxxx111xxxxx10xxxxxxx ("
+b0xxxxxxxxxxxxx111xxxxx10xxxxxxx @"
+b0xxxxxxxxxxxxx111xxxxx10xxxxxxx C"
+bx M"
+bx V"
+bx Y"
+bx1x1xxxxxxxxxx O"
+bx1x1xxxxxxxxxx L"
+bx1x1xxxxxxxxxx d"
+bx1x1xxxxxxxxxx g"
+bx0xx0x01x11xxx11xxx00x1x0xx0x01x ?
+bx0xx0x01x11xxx11xxx00x1x0xx0x01x F
+bx0xx0x01x11xxx11xxx00x1x0xx0x01x10x10x101010xx110xxxxxx00x10x101 A
+b10x10x101010xx110xxxxxx00x10x101 >
+b10x10x101010xx110xxxxxx00x10x101 I
+bx1110xx0x1xx00xx0100xxxx1110x M
+bx1110xx0x1xx00xx0100xxxx1110x T
+bx1110xx0x1xx00xx0100xxxx1110x111x0xx0xx00x0x001xx1x1011x0xx0x O
+b111x0xx0xx00x0x001xx1x1011x0xx0x L
+b111x0xx0xx00x0x001xx1x1011x0xx0x W
+bx11xxxx10x110xx0xxxxxxxx11xxxx10 c
+bx11xxxx10x110xx0xxxxxxxx11xxxx10 j
+bx11xxxx10x110xx0xxxxxxxx11xxxx10xx00xxx1xx1xxxx01101xx1xx00xxx1x e
+bx00xxx1xx1xxxx01101xx1xx00xxx1x b
+bx00xxx1xx1xxxx01101xx1xx00xxx1x m
+bx11x01x1xxxxx1xx1110x1xx11x01x1 q
+bx11x01x1xxxxx1xx1110x1xx11x01x1 x
+bx11x01x1xxxxx1xx1110x1xx11x01x111xx0xxxxxx10x111x0x0xx01xx0xxxx s
+b11xx0xxxxxx10x111x0x0xx01xx0xxxx p
+b11xx0xxxxxx10x111x0x0xx01xx0xxxx {
+bx11xxxxxxx11x1x1xx10xx0x11xxxxxx 1"
+bx11xxxxxxx11x1x1xx10xx0x11xxxxxx 8"
+bx11xxxxxxx11x1x1xx10xx0x11xxxxxx01xx0110xxxxx10xx1x101111xx0110x 3"
+b1xx0110xxxxx10xx1x101111xx0110x 0"
+b1xx0110xxxxx10xx1x101111xx0110x ;"
+b0x11x1xx0x0xxx111xxxx010x11x1xx ?"
+b0x11x1xx0x0xxx111xxxx010x11x1xx F"
+b0x11x1xx0x0xxx111xxxx010x11x1xx00000xx011x10x1111x0xxx10000xx01 A"
+b0xx011x10x1111x0xxx10000xx01 >"
+b0xx011x10x1111x0xxx10000xx01 I"
+b10xxx0xxxxxx0x1xxx0x0xx00xxx0xxx U"
+b10xxx0xxxxxx0x1xxx0x0xx00xxx0xxx \"
+b10xxx0xxxxxx0x1xxx0x0xx00xxx0xxx0x0001101xx11xx1xxx110x1x0001101 W"
+b0x0001101xx11xx1xxx110x1x0001101 T"
+b0x0001101xx11xx1xxx110x1x0001101 _"
+b10xx0x0x1xxx0x00x10101100xx0x0x1 c"
+b10xx0x0x1xxx0x00x10101100xx0x0x1 j"
+b10xx0x0x1xxx0x00x10101100xx0x0x1xxx1xx1xxxx1x1x1xx11x1x1xx1xx1xx e"
+bx1xx1xxxx1x1x1xx11x1x1xx1xx1xx b"
+bx1xx1xxxx1x1x1xx11x1x1xx1xx1xx m"
+b10101110011100001110000101010110001111011110110001001100011 D
+b1011001010100111001001100110010110010110101010110101100000101101 G
+b1101111010001110001010001011110100101110010110000100100101011100 R
+b1110001011001010010011101100010111110100000000000111101011101000 U
+b1110011101110110100101101100111001111001001100000110100111110010 h
+b100011111101100110110111000111110001001001100101101011000010010 k
+b1011101111010010011100100111011101110010101011111111011111100101 v
+b1101010100010011110100101010101011100010111101111000010011000101 y
+b1110001100110111001001001100011001111100111111011110100111111001 6"
+b100011000101101111101111000110001110110110101000101011111101101 9"
+b1111010001101110011010011110100111011001000111111000101110110 D"
+b11011010111110011010000110100000000111100111110001100000001 G"
+b1000100100110111010100100001001010110010110000101000010001100101 Z"
+b100011011011111100110011000110100000110101110010111101100001101 ]"
+b1011000111110000010101100110001110000100100001001101011000001001 h"
+b1111111111111111111111111111111100010010000101010011010100100100 k"
+b101011100111000011100001010101100011110111101100010011000111011001010100111001001100110010110010110101010110101100000101101 <
+b11011110100011100010100010111101001011100101100001001001010111001110001011001010010011101100010111110100000000000111101011101000 J
+b11100111011101101001011011001110011110010011000001101001111100100100011111101100110110111000111110001001001100101101011000010010 `
+b10111011110100100111001001110111011100101010111111110111111001011101010100010011110100101010101011100010111101111000010011000101 n
+bx1xx1xxxx1x1x1xx11x1x1xx1xx1xx #
+b11100011001101110010010011000110011111001111110111101001111110010100011000101101111101111000110001110110110101000101011111101101 ."
+b11110100011011100110100111101001110110010001111110001011101100000011011010111110011010000110100000000111100111110001100000001 <"
+b10001001001101110101001000010010101100101100001010000100011001010100011011011111100110011000110100000110101110010111101100001101 R"
+b10110001111100000101011001100011100001001000010011010110000010011111111111111111111111111111111100010010000101010011010100100100 `"
+b10101110011100001110000101010110001111011110110001001100011101100101010011100100110011001011001011010101011010110000010110111011110100011100010100010111101001011100101100001001001010111001110001011001010010011101100010111110100000000000111101011101000 4
+b1110011101110110100101101100111001111001001100000110100111110010010001111110110011011011100011111000100100110010110101100001001010111011110100100111001001110111011100101010111111110111111001011101010100010011110100101010101011100010111101111000010011000101 X
+b1110001100110111001001001100011001111100111111011110100111111001010001100010110111110111100011000111011011010100010101111110110100011110100011011100110100111101001110110010001111110001011101100000011011010111110011010000110100000000111100111110001100000001 &"
+b1000100100110111010100100001001010110010110000101000010001100101010001101101111110011001100011010000011010111001011110110000110110110001111100000101011001100011100001001000010011010110000010011111111111111111111111111111111100010010000101010011010100100100 J"
+b101011100111000011100001010101100011110111101100010011000111011001010100111001001100110010110010110101010110101100000101101110111101000111000101000101111010010111001011000010010010101110011100010110010100100111011000101111101000000000001111010111010001110011101110110100101101100111001111001001100000110100111110010010001111110110011011011100011111000100100110010110101100001001010111011110100100111001001110111011100101010111111110111111001011101010100010011110100101010101011100010111101111000010011000101 ,
+b1111111111111111111111111111111100010010000101010011010100100100 !
+b11100011001101110010010011000110011111001111110111101001111110010100011000101101111101111000110001110110110101000101011111101101000111101000110111001101001111010011101100100011111100010111011000000110110101111100110100001101000000001111001111100011000000011000100100110111010100100001001010110010110000101000010001100101010001101101111110011001100011010000011010111001011110110000110110110001111100000101011001100011100001001000010011010110000010011111111111111111111111111111111100010010000101010011010100100100 |
+b10101110011100001110000101010110001111011110110001001100011101100101010011100100110011001011001011010101011010110000010110111011110100011100010100010111101001011100101100001001001010111001110001011001010010011101100010111110100000000000111101011101000111001110111011010010110110011100111100100110000011010011111001001000111111011001101101110001111100010010011001011010110000100101011101111010010011100100111011101110010101011111111011111100101110101010001001111010010101010101110001011110111100001001100010111100011001101110010010011000110011111001111110111101001111110010100011000101101111101111000110001110110110101000101011111101101000111101000110111001101001111010011101100100011111100010111011000000110110101111100110100001101000000001111001111100011000000011000100100110111010100100001001010110010110000101000010001100101010001101101111110011001100011010000011010111001011110110000110110110001111100000101011001100011100001001000010011010110000010011111111111111111111111111111111100010010000101010011010100100100 $
+#36000
