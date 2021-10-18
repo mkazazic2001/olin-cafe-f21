@@ -8,7 +8,7 @@ VIVADO=vivado -mode batch -source
 .PHONY: clean submission remove_solutions
 
 ADDERS = full_adder.sv add32.sv
-MUX = mux32.sv
+MUX = mux2.sv mux4.sv mux32.sv
 
 test_add32: test_add32.sv ${ADDERS}
 	${IVERILOG} $^ -o test_add32.bin &&	${VVP} test_add32.bin
