@@ -1,4 +1,4 @@
-module mux8(D,S,Y);
+module mux16(D,S,Y);
 
 input wire [511:0] D;
 input wire [3:0] S;

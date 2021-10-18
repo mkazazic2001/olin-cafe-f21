@@ -8,7 +8,7 @@ output wire c_out;
 
 wire [32:0] carries;
 assign carries[0] = c_in;
-assign c_out = carries[N];
+assign c_out = carries[32];
 generate
     genvar i;
     for(i = 0; i < 32; i++) begin: ripple_carry
@@ -16,8 +16,8 @@ generate
             .a(a[i]),
             .b(b[i]),
             .c_in(carries[i]),
-            .sum(sum[i])
-            .c_out(carries[i+1])
+            .y(sum[i]),
+            .c(carries[i+1])
         );
     end
 endgenerate
