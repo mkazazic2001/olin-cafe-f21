@@ -1,5 +1,5 @@
 $date
-	Mon Oct 18 19:54:50 2021
+	Mon Oct 18 21:47:01 2021
 $end
 $version
 	Icarus Verilog
@@ -7,14 +7,14 @@ $end
 $timescale
 	1ps
 $end
-$scope module test_adders $end
+$scope module test_muxes $end
 $scope module UUT2_1_MUX $end
 $var wire 64 ! D [63:0] $end
 $var wire 1 " S $end
 $var wire 32 # Y [31:0] $end
 $upscope $end
 $upscope $end
-$scope module test_adders $end
+$scope module test_muxes $end
 $scope module UUT32_1_MUX $end
 $var wire 1024 $ D [1023:0] $end
 $var wire 5 % S [4:0] $end

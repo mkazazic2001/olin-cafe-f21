@@ -3,7 +3,7 @@
 
 `define SIMULATION
 
-module test_adders;
+module test_muxes;
   logic [1023:0] D;
   logic [4:0] S;
   logic [31:0] Y_2_1;
@@ -20,7 +20,7 @@ module test_adders;
     $dumpvars(0, UUT2_1_MUX);
     $dumpvars(0, UUT32_1_MUX);
 
-    $display("\n\n32-Bit-Wide 2:1 Mux: \n");
+    $display("\n\n32-Bit-Wide 2:1 MUX: \n");
     
     D = {32{1'b1}}<<32;
     #1 for (int i = 0; i < 2; i = i + 1) begin
@@ -32,7 +32,7 @@ module test_adders;
     $display("\n Tested. \n");
     $display("-------------------------------------------------------------------");
 
-    $display("\n32-Bit-Wide 32:1 Mux:\n");
+    $display("\n32-Bit-Wide 32:1 MUX:\n");
     for (int i = 0; i < 32; i = i + 1) begin
         D = D | $random%4294967295<<i*32;
     end
