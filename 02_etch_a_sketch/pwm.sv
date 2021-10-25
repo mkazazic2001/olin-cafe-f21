@@ -22,6 +22,22 @@ logic [N-1:0] counter;
 // bonus: out should be fully zero at duty = 0, and fully 1 (always on) at duty = 2^N-1;
 // You can use behavioural combinational logic, but try to keep your sequential
 //   and combinational blocks as separate as possible.
+always_ff @(posedge clk) begin : counter_logic
+  if(rst) begin
+    counter <= 0;
+  end
+  else if(ena) begin
+    counter <= counter + 1;
+  end
+end
 
+always_comb begin : out_comb
+  if(duty == (2**N) -1) begin
+    out = ena;
+  end
+  else begin
+    out = counter < duty & ena;
+  end
+end
 
 endmodule
