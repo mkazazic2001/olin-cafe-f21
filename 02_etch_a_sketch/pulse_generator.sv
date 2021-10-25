@@ -15,7 +15,8 @@ logic counter_comparator;
 always_ff @(posedge clk) begin : counter_logic
   if (rst | counter_comparator) begin
     counter <= 0;
-  end else if (ena) begin
+  end
+  else if (ena) begin
     if(counter_comparator) begin
       counter <=0;
     end
