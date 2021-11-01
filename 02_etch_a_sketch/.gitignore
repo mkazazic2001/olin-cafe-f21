@@ -1,2 +1,9 @@
-*.bin
 *.vcd
+*.bin
+*.checkpoint
+*.log
+*.bit
+*.html
+*.xml
+*.jou
+.Xil/
