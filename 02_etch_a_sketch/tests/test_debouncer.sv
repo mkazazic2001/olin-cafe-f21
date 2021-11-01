@@ -32,7 +32,7 @@ initial begin
   repeat (2) @(negedge clk);
   rst = 0;
 
-  // simulation of a bounce!
+  // simulation of a bounce up
   bounces = ($urandom % 20) + 10;
   $display("starting a bounce sequence %d", bounces);
   for(int i = 0; i < bounces; i = i + 1) begin
@@ -42,8 +42,11 @@ initial begin
   end
   bouncy_in = 1;
 
-  repeat(250) @(posedge clk);
+  repeat (250) @(posedge clk);
 
+  if( debounced_out !== 1) $display("ERROR!");
+
+  // simulation of a bounce down
   bounces = ($urandom % 20) + 10;
   $display("starting a bounce sequence %d", bounces);
   for(int i = 0; i < bounces; i = i + 1) begin
@@ -54,11 +57,17 @@ initial begin
   bouncy_in = 0;
 
   repeat (250) @(posedge clk);
+  if( debounced_out !== 0) $display("ERROR!");
 
   $finish;
-  
 
+end
 
+// Put a timeout to make sure the simulation doesn't run forever.
+initial begin
+  repeat (1000) @(posedge clk);
+  $display("Test timed out. Check your FSM logic, or increase MAX_CYCLES");
+  $finish;
 end
 
 endmodule

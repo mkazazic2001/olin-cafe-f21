@@ -5,7 +5,7 @@ VVP=vvp
 VIVADO=vivado -mode batch -source
 
 # Add any new source files needed for the final bitstream here
-SRCS=pulse_generator.sv pwm.sv triangle_generator.sv 
+SRCS=pulse_generator.sv pwm.sv triangle_generator.sv debouncer.sv edge_detector.sv edge_detector_moore.sv
 
 # Look up .PHONY rules for Makefiles
 .PHONY: clean submission remove_solutions
@@ -31,6 +31,38 @@ test_main: tests/test_main.sv main.sv $(SRCS)
 	@echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	${IVERILOG} $^ -o test_main.bin && ${VVP} test_main.bin
 
+test_light_sequencer: tests/test_light_sequencer.sv light_sequencer.sv $(SRCS)
+	@echo "This might take a while, we're testing a lot of clock cycles!"
+	@echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	@echo "!!!! This test can generate 100s of MB easily            !!!!"
+	@echo "!!!! be careful if you are low on disk space!            !!!!"
+	@echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	${IVERILOG} $^ -o test_light_sequencer.bin && ${VVP} test_light_sequencer.bin
+
+test_edge_detectors : test_edge_detectors.sv edge_detector.sv edge_detector_moore.sv
+	${IVERILOG} $^ -o test_edge_detectors.bin && ${VVP} test_edge_detectors.bin
+
+# for the light sequencer
+light_sequencer.bit: light_sequencer.sv $(SRCS)
+	@echo "########################################"
+	@echo "#### Building FPGA bitstream        ####"
+	@echo "########################################"
+	${VIVADO} build_led.tcl
+
+program_fpga_vivado_led: light_sequencer.bit
+	@echo "########################################"
+	@echo "#### Programming FPGA (Vivado)      ####"
+	@echo "########################################"
+	${VIVADO} program_led.tcl
+
+program_fpga_digilent_led: light_sequencer.bit
+	@echo "########################################"
+	@echo "#### Programming FPGA (Digilent)    ####"
+	@echo "########################################"
+	djtgcfg enum
+	djtgcfg prog -d CmodA7 -i 0 -f light_sequencer.bit
+
+# for main etch-a-sketch script
 main.bit: main.sv $(SRCS)
 	@echo "########################################"
 	@echo "#### Building FPGA bitstream        ####"
@@ -49,7 +81,6 @@ program_fpga_digilent: main.bit
 	@echo "########################################"
 	djtgcfg enum
 	djtgcfg prog -d CmodA7 -i 0 -f main.bit
-
 
 # Call this to clean up all your generated files
 clean:
