@@ -12,7 +12,7 @@ generate
     for (num_input= 0; num_input < N; num_input = num_input + 1) begin: buildAllMuxInputs
         always_comb begin : buildMuxInput
             // build one n-length input for each possible right shift
-            Y_in [31+(num_input*32):num_input*32] = {{num_input{1'b0}},in[N-1:num_input]};
+            Y_in [N+(num_input*N)-1:num_input*N] = {{num_input{1'b0}},in[N-1:num_input]};
         end
     end
 endgenerate
