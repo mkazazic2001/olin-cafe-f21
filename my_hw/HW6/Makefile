@@ -31,7 +31,7 @@ waves_serial: test_serial
 
 # Call this to clean up all your generated files
 clean:
-	rm -f *.bin *.vcd vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml
+	rm -f *.bin *.vcd vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml *.fst
 
 # Call this to generate your submission zip file.
 submission:
