@@ -1,2 +1,5 @@
 *.jou
 *.log
+*.html
+.Xil/*
+*.checkpoint

@@ -94,6 +94,11 @@ block_ram #(.W(VRAM_W), .L(VRAM_L)) VRAM(
 );
 
 // Put appropriate RAM clearing logic here!
+always @(posedge clk) begin
+  if(rst) begin
+    // clear the RAM
+  end
+end
 
 
 assign backlight = 1;
