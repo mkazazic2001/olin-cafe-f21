@@ -139,13 +139,15 @@ end
 
 
 
-
+// Show cursor when touching screen
 always_comb begin  : draw_cursor_logic
   if(touch.valid & (touch.x[8:2] == pixel_x[8:2]) 
     & (touch.y[8:2] == pixel_y[8:2])) begin
-    pixel_color = WHITE;
+    pixel_color = BLACK;
   end else begin
     // Have this draw from memory using rd_addr and rd_data
+    vram_rd_addr = pixel_x + (pixel_y*DISPLAY_WIDTH);
+    pixel_color = vram_rd_data;
   end
 end
 

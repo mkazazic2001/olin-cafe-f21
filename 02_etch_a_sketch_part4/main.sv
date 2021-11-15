@@ -29,6 +29,7 @@ parameter DISPLAY_WIDTH = 240;
 parameter DISPLAY_HEIGHT = 320;
 parameter VRAM_L = DISPLAY_HEIGHT*DISPLAY_WIDTH;
 parameter VRAM_W = 16;
+parameter ILI9341_color_t VRAM_CLEAR = WHITE; // clear base color
 
 
 //Module I/O and parameters
@@ -94,10 +95,30 @@ block_ram #(.W(VRAM_W), .L(VRAM_L)) VRAM(
 );
 
 // Put appropriate RAM clearing logic here!
-always @(posedge clk) begin
+always_ff @(posedge clk) begin : ramClear
   if(rst) begin
-    // clear the RAM
+    // set state to start clearing
+    vram_clear_counter <= 0; // start over counter
+    vram_state <= S_VRAM_CLEARING;
   end
+  else if(vram_clear_counter >= VRAM_L) begin
+    // set state to stop clearing
+    vram_state <= S_VRAM_ACTIVE;
+  end
+  // counter logic
+  if(vram_state == S_VRAM_CLEARING) begin
+    vram_clear_counter++; // add new time to be address 
+  end
+end
+
+always_comb begin : vramClear
+  // clear the screen
+  if(vram_state == S_VRAM_CLEARING) begin
+    vram_wr_ena = 1;
+    vram_wr_addr = vram_clear_counter;
+    vram_wr_data = VRAM_CLEAR;
+  end
+
 end
 
 

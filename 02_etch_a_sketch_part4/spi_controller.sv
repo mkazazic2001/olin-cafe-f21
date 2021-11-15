@@ -10,19 +10,19 @@ input wire clk, rst; // default signals.
 
 // SPI Signals
 output logic sclk; // Serial clock to secondary device.
-output logic csb; // chip select bar, needs to go low at the start of any SPI transaction, then go high whne done.
+output logic csb; // chip select bar, needs to go low at the start of any SPI transaction, then go high when done.
 output logic mosi; // Main Out Secondary In (sends serial data to secondary device)
 input wire miso; // Main In Secondary Out (receives serial data from secondary device)
 
 // Control Signals
 input spi_transaction_t spi_mode;
-output logic i_ready;
-input wire i_valid;
-input wire [15:0] i_data;
+output logic i_ready; // ready for use of incoming data
+input wire i_valid; // check if incoming data is usable
+input wire [15:0] i_data; // incoming data
 
 input wire o_ready; // Unused for now.
-output logic o_valid;
-output logic [23:0] o_data;
+output logic o_valid; // outgoing data is usable
+output logic [23:0] o_data; // outgoing data
 output logic unsigned [4:0] bit_counter; // the number of the current bit being transmit
 
 // TX : transmitting
@@ -33,6 +33,7 @@ enum logic [2:0] {S_IDLE, S_TXING, S_TX_DONE, S_RXING, S_RX_DONE, S_ERROR } stat
 logic [15:0] tx_data;
 logic [23:0] rx_data;
 
+// Set Chip Select Bar low when tx/rx transaction in use, high when done or unused
 always_comb begin : csb_logic
   case(state)
     S_IDLE, S_ERROR : csb = 1;
@@ -41,6 +42,7 @@ always_comb begin : csb_logic
   endcase
 end
 
+// Determine serial data to send to secondary device based on tx
 always_comb begin : mosi_logic
   mosi = tx_data[bit_counter[4:0]] & (state == S_TXING);
 end
@@ -61,7 +63,7 @@ so that's a negative edge.
 always_ff @(posedge clk) begin : spi_controller_fsm
   if(rst) begin
     state <= S_IDLE;
-    sclk <= 0;
+    sclk <= 0; // back to positive edge
     bit_counter <= 0;
     o_valid <= 0;
     i_ready <= 1;

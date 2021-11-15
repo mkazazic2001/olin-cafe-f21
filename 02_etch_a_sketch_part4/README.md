@@ -18,7 +18,7 @@ We're using [Adafruit's 2.8" TFT LCD with Cap Touch Breakout Board w/MicroSD Soc
 - [*] SPI Controller for Display
 - [*] i2c Controller for touchscreen
 - [ ] main system FSM 
-  - [ ] clear memory on button press
+  - [*] clear memory on button press
   - [ ] update memory based on touch values
   - [ ] emit draw signals based on memory
   - [ ] bonus: add colors, different modes

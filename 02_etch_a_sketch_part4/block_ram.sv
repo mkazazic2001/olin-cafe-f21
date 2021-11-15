@@ -2,15 +2,15 @@
 
 module block_ram(clk, rd_addr, rd_data, wr_ena, wr_addr, wr_data);
 
-parameter W = 8; // Width of each row of  the memory
-parameter L = 32; // Length fo the memory
+parameter W = 8; // Width of each row of the memory
+parameter L = 32; // Length for the memory
 parameter INIT = "zeros.memh";
 
 input wire clk;
 input [$clog2(L)-1:0] rd_addr, wr_addr;
 output logic [W-1:0] rd_data;
 input wire wr_ena;
-output logic [W-1:0] wr_data;
+input logic [W-1:0] wr_data;
 
 logic [W-1:0] ram [0:L-1];
 initial begin
