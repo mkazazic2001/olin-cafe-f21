@@ -17,11 +17,19 @@ We're using [Adafruit's 2.8" TFT LCD with Cap Touch Breakout Board w/MicroSD Soc
 - [*] PWM Module
 - [*] SPI Controller for Display
 - [*] i2c Controller for touchscreen
-- [ ] main system FSM 
+- [*] main system FSM 
   - [*] clear memory on button press
   - [*] update memory based on touch values
   - [*] emit draw signals based on memory
-  - [ ] bonus: add colors, different modes
+  - [*] bonus: add colors, different modes
   - [ ] stretch bonus: add fonts/textures! (hint, you can create more ROMs or learn how to use the display controllers draw from SD card features).
+
+## Notes and Comments:
+- `spi_controller.sv` SPI Controller for Display
+- `ili9341_display_controller.sv` ILI9341 Display Controller
+
+## Bonus:
+With each button press, change the color of the LED and the color of the draw pixel according to listed colors in a finite state machine. Each debounced and edge-detected (so hold only applies one state change) button press, the next color in line is picked, making the LED and draw pixel that color.
+
 
 # Part 4

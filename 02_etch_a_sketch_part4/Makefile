@@ -8,7 +8,7 @@ VIVADO=vivado -mode batch -source
 ILI9341_SRCS=spi_controller.sv ili9341_display_controller.sv spi_types.sv ili9341_defines.sv block_rom.sv
 FT6206_SRCS=i2c_controller.sv ft6206_controller.sv i2c_types.sv ft6206_defines.sv 
 # Add any new source files needed for the final bitstream here
-MAIN_SRCS=main.sv pulse_generator.sv pwm.sv triangle_generator.sv block_ram.sv ${ILI9341_SRCS} ${FT6206_SRCS}
+MAIN_SRCS=main.sv pulse_generator.sv pwm.sv triangle_generator.sv block_ram.sv edge_detector.sv debouncer.sv led_example.sv ${ILI9341_SRCS} ${FT6206_SRCS}
 
 # Look up .PHONY rules for Makefiles
 .PHONY: clean submission remove_solutions

@@ -52,7 +52,7 @@ input wire spi_miso;
 
 // Pixel color to draw with
 ILI9341_color_t draw_color;
-always_comb draw_color = BLACK; // Default color to black
+//always_comb draw_color = BLACK; // Default color to black
 
 // Create a faster clock using internal PLL hardware.
 `ifdef SIMULATION
@@ -96,6 +96,13 @@ block_ram #(.W(VRAM_W), .L(VRAM_L)) VRAM(
   .clk(clk), .rd_addr(vram_rd_addr), .rd_data(vram_rd_data),
   .wr_ena(vram_wr_ena), .wr_addr(vram_wr_addr), .wr_data(vram_wr_data)
 );
+
+debouncer #(.BOUNCE_TICKS(8)) DEBOUNCER(sysclk, rst, buttons[1], leds[0]);
+
+led_example #(.BOUNCE_TICKS(8)) LED_STATE_MACHINE(sysclk, rst, buttons[1], rgb_inv[0], rgb_inv[1], rgb_inv[2], draw_color);
+
+logic [2:0] rgb_inv;
+always_comb rgb = ~rgb_inv;
 
 // Put appropriate RAM clearing logic here!
 always_ff @(posedge clk) begin : ramClear
@@ -186,12 +193,11 @@ always @(posedge clk) begin
   end
 end
 
-always_comb begin
-  rgb[1] = ~touch0.valid;
-  rgb[2] = 1;
-  rgb[0] = 1;
+always_comb begin : blockName
+  leds[1] = buttons[1];
 end
 
+/*
 pwm #(.N(PWM_WIDTH)) PWM_LED0 (
   .clk(clk), .rst(rst), .ena(1'b1), .step(1'b1), .duty(led_pwm0),
   .out(leds[0])
@@ -201,6 +207,7 @@ pwm #(.N(PWM_WIDTH)) PWM_LED1 (
   .clk(clk), .rst(rst), .ena(1'b1), .step(1'b1), .duty(led_pwm1),
   .out(leds[1])
 );
+*/
 
 endmodule
 
