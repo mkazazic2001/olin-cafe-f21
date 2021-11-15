@@ -16,6 +16,7 @@ input wire miso; // Main In Secondary Out (receives serial data from secondary d
 
 // Control Signals
 input spi_transaction_t spi_mode;
+// Ready/valid handshake
 output logic i_ready; // ready for use of incoming data
 input wire i_valid; // check if incoming data is usable
 input wire [15:0] i_data; // incoming data
@@ -27,6 +28,8 @@ output logic unsigned [4:0] bit_counter; // the number of the current bit being 
 
 // TX : transmitting
 // RX: receiving
+// question: is there a reason we can't TX & RX at the same time?
+// as I understand it some SPI devices support this
 enum logic [2:0] {S_IDLE, S_TXING, S_TX_DONE, S_RXING, S_RX_DONE, S_ERROR } state;
 
 // Internal registers/counters
@@ -37,12 +40,14 @@ logic [23:0] rx_data;
 always_comb begin : csb_logic
   case(state)
     S_IDLE, S_ERROR : csb = 1;
+    // pull low during transaction
     S_TXING, S_TX_DONE, S_RXING, S_RX_DONE: csb = 0;
     default: csb = 1;
   endcase
 end
 
 // Determine serial data to send to secondary device based on tx
+// this is a shift register
 always_comb begin : mosi_logic
   mosi = tx_data[bit_counter[4:0]] & (state == S_TXING);
 end
@@ -65,23 +70,23 @@ always_ff @(posedge clk) begin : spi_controller_fsm
     state <= S_IDLE;
     sclk <= 0; // back to positive edge
     bit_counter <= 0;
-    o_valid <= 0;
-    i_ready <= 1;
-    tx_data <= 0;
+    o_valid <= 0; // output is not useable yet
+    i_ready <= 1; // ready to take in data
+    tx_data <= 0; // reset
     rx_data <= 0;
     o_data <= 0;
   end else begin
     case(state)
       S_IDLE : begin
 // SOLUTION START
-        i_ready <= 1;
+        i_ready <= 1; //
         sclk <= 0;
         if(i_valid) begin
-          tx_data <= i_data;
+          tx_data <= i_data; // read in a bit
           rx_data <= 0;
-          i_ready <= 0;
-          o_valid <= 0;
-          state <= S_TXING;
+          i_ready <= 0; // not ready anymore
+          o_valid <= 0; // output still isn't useable yet
+          state <= S_TXING; // start tx
           // Initialize our bit counter based on our spi mode. By initializing to a the terminal value and then counting down, we can get away with a single == comparator (instead of comparing to different values based on spi_mode)
           case (spi_mode) 
             WRITE_16 : bit_counter <= 5'd15;
@@ -92,24 +97,24 @@ always_ff @(posedge clk) begin : spi_controller_fsm
 // SOLUTION END
       end
       S_TXING : begin
-        sclk <= ~sclk;
+        sclk <= ~sclk; // toggle sclk when txing
         // positive edge logic
-        if(~sclk) begin
+        if(~sclk) begin // don't need to do anything on posedge
 // SOLUTION START
 // SOLUTION END
         end else begin // negative edge logic
-          
+          // update on negedge to be safe
           if(bit_counter != 0) begin
-            bit_counter <= bit_counter - 1;
+            bit_counter <= bit_counter - 1; // decrement
           end else begin
-            state <= S_TX_DONE;
+            state <= S_TX_DONE; // counter has reached 0, so buffer has been emptied
           end
         end
       end
       S_TX_DONE : begin
         // sclk <= ~sclk; //TODO@(avinash)
         // Next State Logic
-        case (spi_mode)
+        case (spi_mode) // move back to idle after completing TX
           WRITE_8, WRITE_16: begin
               state <= S_IDLE;
               i_ready <= 1;
@@ -117,7 +122,7 @@ always_ff @(posedge clk) begin : spi_controller_fsm
           default : state <= S_RXING;
         endcase
         // Bit Counter Reset Logic
-        case (spi_mode)
+        case (spi_mode) // same deal as with write, but here we're looking at the read buffer size
           WRITE_8_READ_8  : bit_counter <= 5'd7;
           WRITE_8_READ_16 : bit_counter <= 5'd15;
           WRITE_8_READ_24 : bit_counter <= 5'd23;
@@ -129,10 +134,10 @@ always_ff @(posedge clk) begin : spi_controller_fsm
         sclk <= ~sclk;
         if(~sclk) begin // positive edge logic
           if(bit_counter != 0) begin
-            bit_counter <= bit_counter - 1;
-          end else begin
+            bit_counter <= bit_counter - 1; // decrement
+          end else begin // done with RX
             o_data <= rx_data;
-            o_valid <= 1;
+            o_valid <= 1; // ready to RX again
             state <= S_IDLE;
             i_ready <= 1; // This logic would have to change if we wanted to use o_ready.
           end
