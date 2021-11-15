@@ -50,6 +50,9 @@ output wire backlight, display_rstb, data_commandb;
 output wire display_csb, spi_clk, spi_mosi;
 input wire spi_miso;
 
+// Pixel color to draw with
+ILI9341_color_t draw_color;
+always_comb draw_color = BLACK; // Default color to black
 
 // Create a faster clock using internal PLL hardware.
 `ifdef SIMULATION
@@ -111,14 +114,20 @@ always_ff @(posedge clk) begin : ramClear
   end
 end
 
-always_comb begin : vramClear
+// Draw on or clear the screen based on vram_state
+always_comb begin : vramClearDraw
   // clear the screen
   if(vram_state == S_VRAM_CLEARING) begin
     vram_wr_ena = 1;
     vram_wr_addr = vram_clear_counter;
     vram_wr_data = VRAM_CLEAR;
   end
-
+  else if (touch0.valid) begin
+    // write on screen when touch detected
+    vram_wr_ena = 1;
+    vram_wr_addr = touch0.x + (touch0.y*DISPLAY_WIDTH);
+    vram_wr_data = draw_color;
+  end
 end
 
 

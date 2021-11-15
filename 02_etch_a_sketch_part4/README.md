@@ -19,8 +19,8 @@ We're using [Adafruit's 2.8" TFT LCD with Cap Touch Breakout Board w/MicroSD Soc
 - [*] i2c Controller for touchscreen
 - [ ] main system FSM 
   - [*] clear memory on button press
-  - [ ] update memory based on touch values
-  - [ ] emit draw signals based on memory
+  - [*] update memory based on touch values
+  - [*] emit draw signals based on memory
   - [ ] bonus: add colors, different modes
   - [ ] stretch bonus: add fonts/textures! (hint, you can create more ROMs or learn how to use the display controllers draw from SD card features).
 
